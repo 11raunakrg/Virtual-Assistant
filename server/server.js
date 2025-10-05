@@ -18,7 +18,7 @@ app.use(cookieParser());
 // CORS for cross-port requests
 app.use(
   cors({
-    origin: "http://localhost:5173", // frontend origin
+    origin: "https://virtual-assistant-bkn1.onrender.com", // frontend origin
     credentials: true, // allow cookies to be sent
   })
 );

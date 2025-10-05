@@ -21,8 +21,8 @@ export const signUp = async (req, res) => {
     res.cookie("token", token, {
       httpOnly: true, // frontend cannot access it via JS
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
-      sameSite: "lax", // cross-port requests allowed in dev
-      secure: false, // localhost ke liye false
+      sameSite: "None", 
+      secure: true, 
     });
 
     const { password: pass, ...userWithoutPassword } = user._doc;
@@ -58,8 +58,8 @@ export const LogIn = async (req, res) => {
     res.cookie("token", token, {
       httpOnly: true, // frontend cannot access it via JS
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
-      sameSite: "lax", // cross-port requests allowed in dev
-      secure: false, // localhost ke liye false
+     sameSite: "None", 
+      secure: true,
     });
 
     const { password: pass, ...userWithoutPassword } = user._doc;
@@ -76,8 +76,8 @@ export const LogOut = async (req, res) => {
   try {
     res.clearCookie("token", {
       httpOnly: true,
-      sameSite: "lax",
-      secure: false,
+     sameSite: "None", 
+      secure: true,
     });
 
     return res.status(200).json({ message: "Logout successfully" });
